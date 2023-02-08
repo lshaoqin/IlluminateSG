@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Geocoder from './Geocoder';
 import MyMarker from './MyMarker';
 
-function ParentComponent() {
+const GeoMarker = ({address}) => {
   const [location, setLocation] = useState(null);
 
   const handleLocationFound = location => {
@@ -11,7 +11,9 @@ function ParentComponent() {
 
   return (
     <div>
-      <Geocoder address="1600 Amphitheatre Parkway, Mountain View, CA" onLocationFound={handleLocationFound} />
+      <Geocoder 
+        address={address}
+        onLocationFound={handleLocationFound} />
       {location ? (
         <MyMarker
             lat= {location.lat}
@@ -24,4 +26,4 @@ function ParentComponent() {
   );
 }
 
-export default ParentComponent;
+export default GeoMarker;

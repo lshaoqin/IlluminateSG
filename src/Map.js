@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import MapPolygon from './Polygon';
 import MyMarker from './MyMarker';
-import GeocodeMarker from './Geocoder';
+import GeoMarker from './Geocoder';
 
 const API_KEY = "AIzaSyARolktyJsYuKmp2dlfSWSVW9DWVrGJvOY";
 
@@ -65,10 +65,9 @@ const MyMap = () => {
             lat={1.4030501906084931}
             lng={103.89538344150134}
           />
-          <GeocodeMarker
-            lat={1.41}
-            lng={103.7}
-          />
+          {/* <GeoMarker
+            address = {"Punggol MRT"}
+          /> */}
           
 
           
