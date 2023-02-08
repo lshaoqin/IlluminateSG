@@ -14,8 +14,8 @@ function App() {
         Testing map
       </h1>
       {/* <Form /> */}
-      {/* <MyMap/> */}
-      <ParentComponent/>
+      <MyMap/>
+      {/* <ParentComponent/> */}
     </>
   );
 }

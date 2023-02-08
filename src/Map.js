@@ -55,7 +55,7 @@ const MyMap = () => {
           zoom={12}
           // onLoad={onLoad}
         >
-          
+        {/* child components go here */}
           <MapPolygon/>
           <MyMarker
             lat={1.40}
