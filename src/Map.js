@@ -10,15 +10,16 @@ const containerStyle = {
   height: '800px'
 };
 
-const origin = {
-  lat: 1.40,
-  lng: 103.91
-}
+const origin = { 
+  lat: 1.4034441936755713, 
+  lng: 103.89470688726108
+};
 
-const destination = {
-  lat:1.4030501906084931,
-  lng:103.89538344150134
-}
+const destination = { 
+  lat: 1.400081246394204, 
+  lng: 103.91006943963811 };
+
+
 
 const center = {
   lat: 1.4086063582039898,
@@ -48,21 +49,21 @@ function MyComponent() {
   return isLoaded && (
     <>
       {/* <CalcDist
-        origin={{ lat: 37.7749, lng: -122.4194 }}
-        destination={{lat: 1.403, lng: 103}}
+        origin={origin}
+        destination={destination}
       /> */}
 
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={14}
         // onLoad={onLoad}
         // onUnmount={onUnmount}
       >
 
 
 
-        <MapPolygon/>
+        {/* <MapPolygon/> */}
         <MyMarker
           lat={origin.lat}
           lng={origin.lng}

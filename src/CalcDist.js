@@ -38,24 +38,26 @@ import { DistanceMatrixService} from '@react-google-maps/api';
 const originCoordinate = { lat: 1.4034441936755713, lng: 103.89470688726108};
 const destinationCoordinate = { lat: 1.400081246394204, lng: 103.91006943963811 };
 
-const CalcDist = (origin, destination) => {
+const CalcDist = ({origin, destination}) => {
     const [distance, setDistance] = useState(0);
+    const [time, setTime] = useState(0);
     useEffect(() => {
         const service = new window.google.maps.DistanceMatrixService();
 
         service.getDistanceMatrix({
-            origins: [originCoordinate],
-            destinations: [{ lat: 1.400081246394204, lng: 103.91006943963811 }],
+            origins: [origin],
+            destinations: [destination],
             travelMode: 'WALKING'
         }, (response, status) => {
             if (status === 'OK') {
             setDistance(response.rows[0].elements[0].distance.text);
+            setDistance(response.rows[0].elements[0].distance.time);
             }
         });
     })
     console.log(distance)
     return (
-        <> The distance between the two points is {distance} </>
+        <> The distance between the two points is {distance} and will take approximately {time}</>
     )
 }
 
