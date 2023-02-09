@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import {Marker} from '@react-google-maps/api';
-import index from "./index.png";
+import {MarkerF} from '@react-google-maps/api';
+import index from "./flaticon.png";
 
 
 
 const MyMarker = ({lat, lng}) => {
     return (
-    <Marker
+    <MarkerF
         position={{
             lat: lat,
             lng: lng

@@ -1,6 +1,6 @@
 import './App.css';
 import MyMap from './Map';
-import ParentComponent from './GeoMarker';
+import Form from './Form';
 
 function App() {
 
@@ -13,9 +13,8 @@ function App() {
       <h1>
         Testing map
       </h1>
-      {/* <Form /> */}
+      <Form />
       <MyMap/>
-      {/* <ParentComponent/> */}
     </>
   );
 }

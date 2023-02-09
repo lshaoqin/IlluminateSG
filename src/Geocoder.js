@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_KEY = "AIzaSyARolktyJsYuKmp2dlfSWSVW9DWVrGJvOY";
+const API_KEY = "AIzaSyASXEL31pfCXtU94PPI_iVXMEA82jpf7AU";
 
 function Geocoder({ address, onLocationFound }) {
   const [location, setLocation] = useState(null);
@@ -10,7 +10,8 @@ function Geocoder({ address, onLocationFound }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(address)}&key=${API_KEY}`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(address)}&key=${API_KEY}&sensor=true`
+          // `https://maps.googleapis.com/maps/api/geocode/json?address=&key=${API_KEY}`
         );
         const data = response.data;
         if (data.status === 'OK') {
@@ -18,6 +19,8 @@ function Geocoder({ address, onLocationFound }) {
           setLocation(result.geometry.location);
           if (onLocationFound) {
             onLocationFound(result.geometry.location);
+            console.log(location.lat);
+            console.log(location.lng)
           }
         } else {
           console.error(`Geocode was not successful for the following reason: ${

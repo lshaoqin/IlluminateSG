@@ -1,18 +1,18 @@
 import React, {useState} from 'react'
 
 
-
-
 const Form = () => {
     const [data, setData] = useState();
     const handleSubmit = (e) => {
         e.preventDefault();
+        setData(e);
     }
 
 
     return (
         <form onSubmit={handleSubmit}>
-          <button> Send </button>
+            <input type ="text" placeholder="Input location here"/>
+            <button> Send </button>
         </form>
     )
 }

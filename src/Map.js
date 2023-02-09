@@ -1,81 +1,82 @@
-import React, {useState} from 'react'
-import {GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-import MapPolygon from './Polygon';
+import React from 'react'
+import { DistanceMatrixService, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import MapPolygon from './MapPolygon';
+import GeoMarker from './GeoMarker';
 import MyMarker from './MyMarker';
-import GeoMarker from './Geocoder';
-
-const API_KEY = "AIzaSyARolktyJsYuKmp2dlfSWSVW9DWVrGJvOY";
+import CalcDist from './CalcDist';
 
 const containerStyle = {
   width: '800px',
   height: '800px'
 };
 
+const origin = {
+  lat: 1.40,
+  lng: 103.91
+}
 
-const options = {
-  zoomControl: true
+const destination = {
+  lat:1.4030501906084931,
+  lng:103.89538344150134
 }
 
 const center = {
-  lat: 1.40,
-  lng: 103.91
+  lat: 1.4086063582039898,
+  lng: 103.91007322952733
 };
 
-const MyMap = () => {
-  const { isLoaded, loadError } = useJsApiLoader({
+function MyComponent() {
+  const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: {API_KEY}
+    googleMapsApiKey: ""
   })
 
+  const [map, setMap] = React.useState(null)
 
-  const [maps, setMaps] = useState(null);
   // const onLoad = React.useCallback(function callback(map) {
-  //   const bounds = new maps.LatLngBounds();
-  //   paths.forEach(path => {
-  //     bounds.extend(path);
-  //   });
+  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
+  //   const bounds = new window.google.maps.LatLngBounds(center);
   //   map.fitBounds(bounds);
-  //   setMaps(maps);
-  // }, [maps]);
-  
-   
-  // const [polygon, setPolygon] = React.useState(null);
-  // const onPolygonLoad = React.useCallback(function callback(polygon) {
-  //   setPolygon(polygon);
-  // }, []);
 
- 
- 
-  if (isLoaded) {
-    return isLoaded && (
+  //   setMap(map)
+  // }, [])
+
+  // const onUnmount = React.useCallback(function callback(map) {
+  //   setMap(null)
+  // }, [])
+
+  return isLoaded ? (
+      <>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          options={options}
-          zoom={12}
+          zoom={10}
           // onLoad={onLoad}
+          // onUnmount={onUnmount}
         >
-        {/* child components go here */}
-          <MapPolygon/>
-          <MyMarker
-            lat={1.40}
-            lng={103.91}
-          />
-          <MyMarker
-            lat={1.4030501906084931}
-            lng={103.89538344150134}
-          />
-          <GeoMarker
-            address = {"Punggol MRT"}
-          />
-          
 
-          
+            <CalcDist
+              origin={origin}
+              destination={destination}
+            />
+
+            <MapPolygon/>
+            <MyMarker
+              lat={origin.lat}
+              lng={origin.lng}
+            />
+            <MyMarker
+              lat={destination.lat}
+              lng={destination.lng}
+            /> 
+            {/* <GeoMarker
+              address = {"Punggol MRT"}
+            /> */}
         </GoogleMap>
-    )}
-  else if (loadError) {
-    return <div> <p> Map cannot be loaded right now. </p> </div>
-  }
+
+
+      </>
+  ) : <>Unable to load</>
 }
 
-export default MyMap;
+export default React.memo(MyComponent)
