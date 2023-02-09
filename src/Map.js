@@ -65,9 +65,9 @@ const MyMap = () => {
             lat={1.4030501906084931}
             lng={103.89538344150134}
           />
-          {/* <GeoMarker
+          <GeoMarker
             address = {"Punggol MRT"}
-          /> */}
+          />
           
 
           
