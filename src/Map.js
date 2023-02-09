@@ -1,5 +1,5 @@
 import React from 'react'
-import { DistanceMatrixService, GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import MapPolygon from './MapPolygon';
 import GeoMarker from './GeoMarker';
 import MyMarker from './MyMarker';
@@ -45,38 +45,39 @@ function MyComponent() {
   //   setMap(null)
   // }, [])
 
-  return isLoaded ? (
-      <>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={10}
-          // onLoad={onLoad}
-          // onUnmount={onUnmount}
-        >
+  return isLoaded && (
+    <>
+      {/* <CalcDist
+        origin={{ lat: 37.7749, lng: -122.4194 }}
+        destination={{lat: 1.403, lng: 103}}
+      /> */}
 
-            <CalcDist
-              origin={origin}
-              destination={destination}
-            />
-
-            <MapPolygon/>
-            <MyMarker
-              lat={origin.lat}
-              lng={origin.lng}
-            />
-            <MyMarker
-              lat={destination.lat}
-              lng={destination.lng}
-            /> 
-            {/* <GeoMarker
-              address = {"Punggol MRT"}
-            /> */}
-        </GoogleMap>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        // onLoad={onLoad}
+        // onUnmount={onUnmount}
+      >
 
 
-      </>
-  ) : <>Unable to load</>
+
+        <MapPolygon/>
+        <MyMarker
+          lat={origin.lat}
+          lng={origin.lng}
+        />
+        <MyMarker
+          lat={destination.lat}
+          lng={destination.lng}
+        /> 
+        {/* <GeoMarker
+          address = {"Punggol MRT"}
+        /> */}
+      </GoogleMap>
+
+    </>
+  )
 }
 
 export default React.memo(MyComponent)

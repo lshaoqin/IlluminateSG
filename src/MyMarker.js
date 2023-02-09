@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import {MarkerF} from '@react-google-maps/api';
 import index from "./flaticon.png";
 
+const onClickHandler = (e) => {
+    console.log("marker clicked")
+}
 
 
 const MyMarker = ({lat, lng}) => {
@@ -12,6 +15,7 @@ const MyMarker = ({lat, lng}) => {
             lng: lng
         }}
         icon={index}
+        onClick = {onClickHandler}
     />
     )
 }
