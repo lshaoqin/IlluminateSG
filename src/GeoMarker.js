@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Geocoder from './Geocoder';
-import MyMarker from './MyMarker';
+import MyMarker from './MentorMarker';
 
 const GeoMarker = (address) => {
   const [location, setLocation] = useState(null);

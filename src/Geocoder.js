@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const API_KEY = "AIzaSyASXEL31pfCXtU94PPI_iVXMEA82jpf7AU";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 function Geocoder({ address, onLocationFound }) {
   const [location, setLocation] = useState(null);
@@ -34,7 +34,7 @@ function Geocoder({ address, onLocationFound }) {
     fetchData();
   }, [address, onLocationFound]);
 
-  return null;
+  return location;
 }
 
 

@@ -29,6 +29,7 @@ const paths = [
   { lat: 1.4041, lng: 103.9189 }
 ];
 
+
 function MapWithPolygon() {
   const [maps, setMaps] = useState(null);
   const { isLoaded, loadError } = useLoadScript({

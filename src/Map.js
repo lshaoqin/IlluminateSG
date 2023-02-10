@@ -2,7 +2,8 @@ import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import MapPolygon from './MapPolygon';
 import GeoMarker from './GeoMarker';
-import MyMarker from './MyMarker';
+import MentorMarker from './MentorMarker';
+import MenteeMarker from './MenteeMarker';
 import CalcDist from './CalcDist';
 
 const containerStyle = {
@@ -19,17 +20,15 @@ const destination = {
   lat: 1.400081246394204, 
   lng: 103.91006943963811 };
 
-
-
 const center = {
   lat: 1.4086063582039898,
   lng: 103.91007322952733
 };
 
-function MyComponent() {
+const MyComponent = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyASXEL31pfCXtU94PPI_iVXMEA82jpf7AU"
+    googleMapsApiKey: "AIzaSyBiMp3tB1SXzTwj2ba8UPBITUUaK0x2WEM"
   })
 
   const [map, setMap] = React.useState(null)
@@ -64,17 +63,17 @@ function MyComponent() {
 
 
         {/* <MapPolygon/> */}
-        <MyMarker
+        <MentorMarker
           lat={origin.lat}
           lng={origin.lng}
         />
-        <MyMarker
+        <MenteeMarker
           lat={destination.lat}
           lng={destination.lng}
         /> 
         {/* <GeoMarker
           address = {"Punggol MRT"}
-        /> */}
+        /> */} {/* geomarker not working yet */}
       </GoogleMap>
 
     </>

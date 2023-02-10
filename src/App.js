@@ -1,6 +1,7 @@
 import './App.css';
 import MyMap from './Map';
 import Form from './Form';
+import CurrentLoc from './CurrentLoc';
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
       <h1>
         Testing map
       </h1>
-      <Form />
+      {/* <CurrentLoc /> */}
+      {/* <Form /> */}
       <MyMap/>
     </>
   );
