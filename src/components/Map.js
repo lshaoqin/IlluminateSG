@@ -54,8 +54,7 @@ const Map = () => {
   // }, []);
 
   return isLoaded && (
-    <div id="map" className="main">
-      <h4>Find an illuminator!</h4>
+    <div id="map">
       <CalcDist
         origin={coord}
         destination={end}
