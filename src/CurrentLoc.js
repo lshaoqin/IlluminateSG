@@ -1,6 +1,5 @@
+import { MarkerF } from "@react-google-maps/api";
 import React, { useState } from "react";
-
-
 
 const CurrentLoc = () => {
         const [control, setControl] = useState(true)
@@ -13,9 +12,7 @@ const CurrentLoc = () => {
         });
 
         return (
-            <div>
-                <h4> You are currently at {coord.lat} E and {coord.lng} N </h4>
-            </div>
+            <MarkerF position={coord} />
         );
 }
 

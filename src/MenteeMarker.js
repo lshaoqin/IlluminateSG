@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import {MarkerF, InfoWindowF} from '@react-google-maps/api';
-import flag from "./flag.png"
-
-
+import flag from "./images/flag.png"
 
 const MenteeMarker = ({lat, lng}) => {
     const [popup, setPopUp] = useState(false);

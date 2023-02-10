@@ -1,14 +1,14 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import MapPolygon from './MapPolygon';
-import GeoMarker from './GeoMarker';
 import MentorMarker from './MentorMarker';
 import MenteeMarker from './MenteeMarker';
 import CalcDist from './CalcDist';
+import CurrentLoc from './CurrentLoc';
 
 const containerStyle = {
-  width: '800px',
-  height: '800px'
+  width: '100vw',
+  height: '80vh'
 };
 
 const origin = { 
@@ -25,7 +25,7 @@ const center = {
   lng: 103.91007322952733
 };
 
-const MyComponent = () => {
+const Map = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: "AIzaSyBiMp3tB1SXzTwj2ba8UPBITUUaK0x2WEM"
@@ -33,24 +33,12 @@ const MyComponent = () => {
 
   const [map, setMap] = React.useState(null)
 
-  // const onLoad = React.useCallback(function callback(map) {
-  //   // This is just an example of getting and using the map instance!!! don't just blindly copy!
-  //   const bounds = new window.google.maps.LatLngBounds(center);
-  //   map.fitBounds(bounds);
-
-  //   setMap(map)
-  // }, [])
-
-  // const onUnmount = React.useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
-
   return isLoaded && (
     <>
-      {/* <CalcDist
+      <CalcDist
         origin={origin}
         destination={destination}
-      /> */}
+      />
 
       <GoogleMap
         mapContainerStyle={containerStyle}
@@ -62,6 +50,7 @@ const MyComponent = () => {
 
 
 
+        <CurrentLoc />
         <MapPolygon/>
         <MentorMarker
           lat={origin.lat}
@@ -80,4 +69,4 @@ const MyComponent = () => {
   )
 }
 
-export default React.memo(MyComponent)
+export default Map;

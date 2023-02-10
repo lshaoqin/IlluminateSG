@@ -1,8 +1,6 @@
 import React, {useState} from 'react'
 import {MarkerF, InfoWindowF} from '@react-google-maps/api';
-import heart from './heart.png'
-
-
+import heart from './images/heart.png'
 
 const MentorMarker = ({lat, lng}) => {
     const [popup, setPopUp] = useState(false);
