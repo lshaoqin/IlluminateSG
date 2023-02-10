@@ -14,4 +14,6 @@ Our project aims to provide a platform through which new or struggling PWDs can 
 Our prototype currently demonstrates the login/sign up function, as well as the basic functionality of the map through which users can find matches. 
 
 ## Tech stack
-[ReactJS](https://reactjs.org/), [Google Maps Platform](https://mapsplatform.google.com/), [Firebase](https://firebase.google.com/)
+* [ReactJS](https://reactjs.org/)
+* [Google Maps Platform](https://mapsplatform.google.com/)
+* [Firebase](https://firebase.google.com/)
