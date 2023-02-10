@@ -4,7 +4,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Error from './pages/Error';
-import Chat from './pages/Chat';
+import MenteePage from './pages/MenteePage';
+import MentorPage from './pages/MentorPage';
+import Apply from './pages/Apply';
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <Route path='/' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/home' element={<Home />} />
-      <Route path='/test' element={<Chat />} />
+      <Route path='/testmentee' element={<MenteePage />} />
+      <Route path='/testmentor' element={<MentorPage />} />
+      <Route path='/apply' element={<Apply />} />
       <Route path='*' element={<Error />} />
     </Routes>
   );

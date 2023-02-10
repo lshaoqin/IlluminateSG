@@ -30,7 +30,7 @@ function Register() {
   }, []);
 
   return (
-    <div className="formpage">
+    <div className="formpage main">
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField 
           label="Name"

@@ -28,8 +28,9 @@ function Login() {
   }, []);
 
   return (
-    <div className="formpage">
+    <div className="formpage main">
       <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>IlluminateSG</h1>
         <TextField 
           label="Email"
           className="formitem"

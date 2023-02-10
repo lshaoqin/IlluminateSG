@@ -4,15 +4,11 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-import CurrentLoc from '../CurrentLoc';
-import Map from '../Map';
+import Map from '../components/Map';
+import Navbar from "../components/Navbar";
 
 function Home() {
   const navigate = useNavigate();
-
-  const handleClick = () => {
-    logOut();
-  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -23,14 +19,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      {auth.currentUser
-      ? auth.currentUser.displayName
-      : <Navigate to="/" />}
-      <CurrentLoc />
+    <div className="main">
+      <Navbar />
       <Map />
-      <Button onClick={handleClick}>SIGN OUT</Button>
-      <Button onClick={() => navigate('/test')}>Test</Button>
     </div>
   );
 }
