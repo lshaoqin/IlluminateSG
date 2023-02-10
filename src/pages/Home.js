@@ -23,7 +23,7 @@ function Home() {
   return (
     <div className="main">
       <Navbar />
-      <img src={logo} style={{maxWidth: "100vw"}} alt="test" />
+      <img src={logo} style={{width: "100vw", height: "auto"}} alt="test" />
       <Map />
       <FilterForm />
     </div>
