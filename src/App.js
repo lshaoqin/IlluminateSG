@@ -1,7 +1,5 @@
 import './App.css';
 import MyMap from './Map';
-import Form from './Form';
-import CurrentLoc from './CurrentLoc';
 
 function App() {
 

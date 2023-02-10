@@ -62,7 +62,7 @@ const MyComponent = () => {
 
 
 
-        {/* <MapPolygon/> */}
+        <MapPolygon/>
         <MentorMarker
           lat={origin.lat}
           lng={origin.lng}
