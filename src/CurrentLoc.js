@@ -3,11 +3,13 @@ import React, { useState } from "react";
 
 
 const CurrentLoc = () => {
-        const [coord, setCoord] = useState(null);
+        const [control, setControl] = useState(true)
+        const [coord, setCoord] = useState({lat: 0, lng: 0});
         navigator.geolocation.getCurrentPosition(function(position) {
             console.log("Latitude is :", position.coords.latitude);
             console.log("Longitude is :", position.coords.longitude);
-            setCoord({lat: position.coords.latitude, lng: position.coords.longitude});
+            control && setCoord({lat: position.coords.latitude, lng: position.coords.longitude});
+            setControl(false);
         });
 
         return (
