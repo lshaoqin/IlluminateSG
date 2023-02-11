@@ -15,7 +15,7 @@ const MentorPage = () => {
 
     return (
         <div  className="main">
-            <p> Contact at +65 XXXX XXXX</p>
+            <p> (TODO) - Drop a message to them here! </p>
         </div> 
     );
 }
