@@ -115,7 +115,7 @@ function Register() {
             row
           >
             <FormControlLabel value="Illuminator" control={<Radio />} label="Illuminator" />
-            <FormControlLabel value="Wayfinder" control={<Radio />} label="Wayfinder" />
+            <FormControlLabel value="Wayfarer" control={<Radio />} label="Wayfarer" />
           </RadioGroup>
         </FormControl>
         <Button 
