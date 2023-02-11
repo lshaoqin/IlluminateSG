@@ -18,7 +18,7 @@ const FilterForm = ({ data }) => {
     <div id="cards">
         <h4>Find an illuminator!</h4>
         <TextField
-            label="Filters"
+            label="Find by type of disability"
             value={filter}
             onChange={handleFilterChange}
         />
