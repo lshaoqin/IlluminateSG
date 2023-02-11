@@ -16,7 +16,7 @@ const MenteeMarker = ({ lat, lng, setEnd }) => {
             setPopUp(true);
             setEnd({lat:lat, lng:lng});
         }}
-        label="Mentee"
+        label="Wayfarer"
         
     />
     {popup && <InfoWindowF
@@ -31,7 +31,7 @@ const MenteeMarker = ({ lat, lng, setEnd }) => {
             Type of disability: XXXX <br/>
             Description: XXXX
             </p>
-            <Link to="/testmentee">Click here to contact your mentee</Link>
+            <Link to="/testmentee">Click here to contact this wayfarer</Link>
         </div>
         </InfoWindowF>}
     </>

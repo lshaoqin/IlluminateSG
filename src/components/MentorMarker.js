@@ -16,7 +16,7 @@ const MentorMarker = ({ lat, lng, setEnd }) => {
             setPopUp(true);
             setEnd({lat:lat, lng:lng});
         }}
-        label="Mentor"
+        label="Illuminator"
     />
     {popup && <InfoWindowF
         position={{lat: lat, lng: lng}}
@@ -30,7 +30,7 @@ const MentorMarker = ({ lat, lng, setEnd }) => {
             Type of disability: XXXX <br/>
             Description: XXXX
             </p>
-            <Link to="/testmentor">Click here to contact your mentor</Link>
+            <Link to="/testmentor">Click here to contact this illuminator</Link>
         </div>
         </InfoWindowF>}
     </>
