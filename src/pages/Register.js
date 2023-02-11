@@ -1,8 +1,8 @@
 import { signUp } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Radio, RadioGroup, FormControl, FormControlLabel } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { isEmail, isAlpha } from 'validator';
@@ -15,10 +15,11 @@ function Register() {
     getValues, 
     formState: { errors }
   } = useForm();
+  const [type, setType] = useState("Illuminator");
 
   const onSubmit = (data) => {
-    const { name, email, password } = data;
-    signUp(name, email, password);
+    const { name, email, password, disability, description, neighbourhood } = data;
+    signUp(name, email, password, disability, description, neighbourhood, type);
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function Register() {
           helperText={errors?.name ? errors.name.message : ""}
           {...register("name", {
             required: true, 
-            validate: name => isAlpha(name) || "No special characters"
+            validate: name => isAlpha(name, ['en-US'], {'ignore': ' _-'}) || "No special characters"
           })}
         />
         <TextField 
@@ -77,6 +78,46 @@ function Register() {
             validate: password => password === getValues("password") || "Password is not the same"
           })}
         />
+        <TextField 
+          label="Type of Disability"
+          className="formitem"
+          error={Boolean(errors?.disability)}
+          helperText={errors?.disability ? errors.disability.message : ""}
+          {...register("disability", {
+            required: true, 
+            validate: disability => isAlpha(disability, ['en-US'], {'ignore': ' _-'}) || "No special characters"
+          })}
+        />
+        <TextField 
+          label="Neighbourhood"
+          className="formitem"
+          error={Boolean(errors?.neighbourhood)}
+          helperText={errors?.neighbourhood ? errors.neighbourhood.message : ""}
+          {...register("neighbourhood", {
+            required: true, 
+            validate: neighbourhood => isAlpha(neighbourhood, ['en-US'], {'ignore': ' _-'}) || "No special characters"
+          })}
+        />
+        <TextField 
+          label="Description"
+          className="formitem"
+          error={Boolean(errors?.description)}
+          multiline
+          minRows={5}
+          maxRows={5}
+          {...register("description", {required: true})}
+        />
+        <FormControl>
+          <RadioGroup
+            name="type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            row
+          >
+            <FormControlLabel value="Illuminator" control={<Radio />} label="Illuminator" />
+            <FormControlLabel value="Wayfinder" control={<Radio />} label="Wayfinder" />
+          </RadioGroup>
+        </FormControl>
         <Button 
           type="submit" 
           variant="contained" 
